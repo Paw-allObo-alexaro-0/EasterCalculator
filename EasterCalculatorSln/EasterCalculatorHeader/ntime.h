@@ -329,4 +329,146 @@ namespace ntime
 			sec = 0;
 		}
 	}
+	int time_private::set(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
+	{
+		time_public temp;
+		temp.nsec = pnsec;
+		temp.mysec = pmysec;
+		temp.msec = pmsec;
+		temp.sec = psec;
+		temp.min = pmin;
+		temp.hour = phour;
+		temp.day = pday;
+		temp.month = pmonth;
+		temp.year = pyear;
+		if (!temp.check())
+		{
+			nsec = pnsec;
+			mysec = pmysec;
+			msec = pmsec;
+			sec = psec;
+			min = pmin;
+			hour = phour;
+			day = pday;
+			month = pmonth;
+			year = pyear;
+			return 0;
+		}
+		else
+			return 1;
+	}
+	int time_private::set_nsec(unsigned short pnsec)
+	{
+		if(pnsec > 999 || pnsec < 0)
+			return 1;
+		else
+			nsec = pnsec;
+		return 0;
+	}
+	int time_private::set_mysec(unsigned short pmysec)
+	{
+		if(pmysec > 999 || pmysec < 0)
+			return 1;
+		else
+			mysec = pmysec;
+		return 0;
+	}
+	int time_private::set_msec(unsigned short pmsec)
+	{
+		if(pmsec > 999 || pmsec < 0)
+			return 1;
+		else
+			msec = pmsec;
+		return 0;
+	}
+	int time_private::set_sec(unsigned char psec)
+	{
+		if(psec > 59 || psec < 0)
+			return 1;
+		else
+			sec = psec;
+		return 0;
+	}
+	int time_private::set_min(unsigned char pmin)
+	{
+		if(pmin > 59 || pmin < 0)
+			return 1;
+		else
+			min = pmin;
+		return 0;
+	}
+	int time_private::set_hour(unsigned char phour)
+	{
+		if(phour > 23 || phour < 0)
+			return 1;
+		else
+			hour = phour;
+		return 0;
+	}
+	int time_private::set_day(unsigned char pday)
+	{
+		if(pday > 31 || pday < 1)
+			return 1;
+		else if(pday > 30 && (month == 4 || month == 6 || month == 9 || month == 11))
+			return 1;
+		else if(pday > 29 && month == 2)
+			return 1;
+		else if(pday > 28 && month == 2 && ((year % 4 != 0) || (year % 100 == 0 && year % 400 != 0)))
+			return 1;
+		else
+			day = pday;
+		return 0;
+	}
+	int time_private::set_month(unsigned char pmonth)
+	{
+		if(pmonth > 12 || pmonth < 1)
+			return 1;
+		else
+			month = pmonth;
+		return 0;
+	}
+	int time_private::set_year(unsigned short pyear)
+	{
+		if(pyear < 0)
+			return 1;
+		else
+			year = pyear;
+		return 0;
+	}
+	unsigned short time_private::get_nsec()
+	{
+		return nsec;
+	}
+	unsigned short time_private::get_mysec()
+	{
+		return mysec;
+	}
+	unsigned short time_private::get_msec()
+	{
+		return msec;
+	}
+	unsigned char time_private::get_sec()
+	{
+		return sec;
+	}
+	unsigned char time_private::get_min()
+	{
+		return min;
+	}
+	unsigned char time_private::get_hour()
+	{
+		return hour;
+	}
+	unsigned char time_private::get_day()
+	{
+		return day;
+	}
+	unsigned char time_private::get_month()
+	{
+		return month;
+	}
+	unsigned short time_private::get_year()
+	{
+		return year;
+	}
 }

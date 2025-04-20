@@ -2,6 +2,15 @@
 
 namespace ntime
 {
+	#ifdef NTIME_PRIVATE_CLASSES
+		#if NTIME_PRIVATE_CLASSES == 1
+			typedef ntime::time_private time;
+		#else
+			typedef ntime::time_public time;
+		#endif
+	#endif
+
+	//classes
 	class time_public
 	{
 		public:
@@ -17,46 +26,6 @@ namespace ntime
 			time_public(void);
 			int check();
 	};
-	time_public::time_public()
-	{
-		nsec = 0;
-		mysec = 0;
-		msec = 0;
-		sec = 0;
-		min = 0;
-		hour = 0;
-		day = 1;
-		month = 1;
-		year = 0;
-	}
-	int time_public::check()
-	{
-		if(month > 12 || month < 1)
-			return 2;
-		if(day > 31 || day < 1)
-			return 3;
-		else if(day > 30 && (month == 4 || month == 6 || month == 9 || month == 11))
-			return 3;
-		else if(day > 29 && month == 2)
-			return 3;
-		else if(day > 28 && month == 2 && ((year % 4 != 0) || (year % 100 == 0 && year % 400 != 0)))
-			return 3;
-		if(hour > 23 || hour < 0)
-			return 4;
-		if(min > 59 || min < 0)
-			return 5;
-		if(sec > 59 || sec < 0)
-			return 6;
-		if(msec > 999 || msec < 0)
-			return 7;
-		if(mysec > 999 || mysec < 0)
-			return 8;
-		if(nsec > 999 || nsec < 0)
-			return 9;
-		return 0;
-	}
-
-
 
 	class time_private
 	{
@@ -98,6 +67,52 @@ namespace ntime
 		unsigned char get_month();
 		unsigned short get_year();
 	};
+
+	//methods
+
+	//for time_public
+	time_public::time_public()
+	{
+		nsec = 0;
+		mysec = 0;
+		msec = 0;
+		sec = 0;
+		min = 0;
+		hour = 0;
+		day = 1;
+		month = 1;
+		year = 0;
+	}
+
+	int time_public::check()
+	{
+		if(month > 12 || month < 1)
+			return 2;
+		if(day > 31 || day < 1)
+			return 3;
+		else if(day > 30 && (month == 4 || month == 6 || month == 9 || month == 11))
+			return 3;
+		else if(day > 29 && month == 2)
+			return 3;
+		else if(day > 28 && month == 2 && ((year % 4 != 0) || (year % 100 == 0 && year % 400 != 0)))
+			return 3;
+		if(hour > 23 || hour < 0)
+			return 4;
+		if(min > 59 || min < 0)
+			return 5;
+		if(sec > 59 || sec < 0)
+			return 6;
+		if(msec > 999 || msec < 0)
+			return 7;
+		if(mysec > 999 || mysec < 0)
+			return 8;
+		if(nsec > 999 || nsec < 0)
+			return 9;
+		return 0;
+	}
+
+
+	//for time_private
 	time_private::time_private()
 	{
 		nsec = 0;
@@ -110,6 +125,7 @@ namespace ntime
 		month = 1;
 		year = 0;
 	}
+
 	time_private::time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
 	{
 		time_public temp;
@@ -147,6 +163,7 @@ namespace ntime
 			year = 0;
 		}
 	}
+
 	time_private::time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec)
 	{
 		nsec = 0;
@@ -182,6 +199,7 @@ namespace ntime
 			year = 0;
 		}
 	}
+
 	time_private::time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday)
 	{
 		nsec = 0;
@@ -214,6 +232,7 @@ namespace ntime
 			year = 0;
 		}
 	}
+
 	time_private::time_private(unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
 	{
 		nsec = pnsec;
@@ -252,6 +271,7 @@ namespace ntime
 			nsec = 0;
 		}
 	}
+
 	time_private::time_private(unsigned char phour, unsigned char pmin, unsigned char psec)
 	{
 		nsec = 0;
@@ -290,6 +310,7 @@ namespace ntime
 			nsec = 0;
 		}
 	}
+
 	time_private::time_private(unsigned char phour, unsigned char pmin)
 	{
 		nsec = 0;
@@ -329,6 +350,7 @@ namespace ntime
 			sec = 0;
 		}
 	}
+
 	int time_private::set(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
 	{
 		time_public temp;
@@ -357,6 +379,8 @@ namespace ntime
 		else
 			return 1;
 	}
+
+
 	int time_private::set_nsec(unsigned short pnsec)
 	{
 		if(pnsec > 999 || pnsec < 0)
@@ -435,6 +459,7 @@ namespace ntime
 			year = pyear;
 		return 0;
 	}
+
 	unsigned short time_private::get_nsec()
 	{
 		return nsec;

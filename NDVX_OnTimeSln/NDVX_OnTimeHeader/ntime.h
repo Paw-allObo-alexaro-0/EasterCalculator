@@ -22,7 +22,7 @@ namespace ntime
 			unsigned char hour;
 			unsigned char day;
 			unsigned char month;
-			unsigned short year;
+			signed short year;
 			time_public(void);
 			int check();
 	};
@@ -38,16 +38,16 @@ namespace ntime
 		unsigned char hour;
 		unsigned char day;
 		unsigned char month;
-		unsigned short year;
+		signed short year;
 	public:
 		time_private();
-		time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec);
-		time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec);
-		time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday);
+		time_private(signed short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec);
+		time_private(signed short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec);
+		time_private(signed short pyear, unsigned char pmonth, unsigned char pday);
 		time_private(unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec);
 		time_private(unsigned char phour, unsigned char pmin, unsigned char psec);
 		time_private(unsigned char phour, unsigned char pmin);
-		int set(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec);
+		int set(signed short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec);
 		int set_nsec(unsigned short pnsec);
 		int set_mysec(unsigned short pmysec);
 		int set_msec(unsigned short pmsec);
@@ -56,7 +56,7 @@ namespace ntime
 		int set_hour(unsigned char phour);
 		int set_day(unsigned char pday);
 		int set_month(unsigned char pmonth);
-		int set_year(unsigned short pyear);
+		int set_year(signed short pyear);
 		unsigned short get_nsec();
 		unsigned short get_mysec();
 		unsigned short get_msec();
@@ -65,7 +65,7 @@ namespace ntime
 		unsigned char get_hour();
 		unsigned char get_day();
 		unsigned char get_month();
-		unsigned short get_year();
+		signed short get_year();
 	};
 
 	//methods
@@ -126,7 +126,7 @@ namespace ntime
 		year = 0;
 	}
 
-	time_private::time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
+	time_private::time_private(signed short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
 	{
 		time_public temp;
 		temp.nsec = pnsec;
@@ -164,7 +164,7 @@ namespace ntime
 		}
 	}
 
-	time_private::time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec)
+	time_private::time_private(signed short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec)
 	{
 		nsec = 0;
 		mysec = 0;
@@ -200,7 +200,7 @@ namespace ntime
 		}
 	}
 
-	time_private::time_private(unsigned short pyear, unsigned char pmonth, unsigned char pday)
+	time_private::time_private(signed short pyear, unsigned char pmonth, unsigned char pday)
 	{
 		nsec = 0;
 		mysec = 0;
@@ -351,7 +351,7 @@ namespace ntime
 		}
 	}
 
-	int time_private::set(unsigned short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
+	int time_private::set(signed short pyear, unsigned char pmonth, unsigned char pday, unsigned char phour, unsigned char pmin, unsigned char psec, unsigned short pmsec, unsigned short pmysec, unsigned short pnsec)
 	{
 		time_public temp;
 		temp.nsec = pnsec;
@@ -451,12 +451,9 @@ namespace ntime
 			month = pmonth;
 		return 0;
 	}
-	int time_private::set_year(unsigned short pyear)
+	int time_private::set_year(signed short pyear)
 	{
-		if(pyear < 0)
-			return 1;
-		else
-			year = pyear;
+		year = pyear;
 		return 0;
 	}
 
@@ -492,7 +489,7 @@ namespace ntime
 	{
 		return month;
 	}
-	unsigned short time_private::get_year()
+	signed short time_private::get_year()
 	{
 		return year;
 	}

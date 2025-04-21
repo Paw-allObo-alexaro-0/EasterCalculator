@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)EasterCalculator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ntime.h" />
   </ItemGroup>
 </Project>

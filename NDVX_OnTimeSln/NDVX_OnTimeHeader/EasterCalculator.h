@@ -6,7 +6,7 @@ namespace time_calculator
 {
 	using namespace ntime;
 
-	time_private calc_single_easter(unsigned short year)
+	time_private calc_single_easter(signed short year)
 	{
 		int a = year % 19;
 		int b = year % 4;

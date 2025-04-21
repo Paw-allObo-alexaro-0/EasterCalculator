@@ -4,9 +4,9 @@ namespace ntime
 {
 	#ifdef NTIME_PRIVATE_CLASSES
 		#if NTIME_PRIVATE_CLASSES == 1
-			typedef ntime::time_private time;
+			typedef time_private time;
 		#else
-			typedef ntime::time_public time;
+			typedef time_public time;
 		#endif
 	#endif
 

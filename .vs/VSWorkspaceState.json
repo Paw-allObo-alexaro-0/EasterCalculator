@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\NDVX_OnTimeSln"
+    "\\NDVX_OnTimeSln",
+    "\\NDVX_OnTimeSln\\NDVX_OnTimeConsole"
   ],
-  "SelectedNode": "\\NDVX_OnTimeSln\\NDVX_OnTime.sln",
+  "SelectedNode": "\\NDVX_OnTimeSln\\NDVX_OnTimeConsole\\main.cpp",
   "PreviewInSolutionExplorer": false
 }

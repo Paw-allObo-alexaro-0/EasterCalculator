@@ -17,7 +17,7 @@ namespace time_calculator
 		time_private date(year, (unsigned char)d + e < 10 ? 3 : 4, (unsigned char)d + e < 10 ? d + e + 22 : d + e - 9);
 		return date;
 	}
-	time_private* calc_easters(unsigned short* years, unsigned short count)
+	time_private* calc_easters(signed short* years, unsigned short count)
 	{
 		time_private* dates = new time_private[count];
 
@@ -27,7 +27,7 @@ namespace time_calculator
 		}
 		return dates;
 	}
-	time_private* calc_range_of_easters(unsigned short start_year, unsigned short end_year)
+	time_private* calc_range_of_easters(signed short start_year, unsigned short end_year)
 	{
 		if (start_year > end_year)
 			return nullptr;

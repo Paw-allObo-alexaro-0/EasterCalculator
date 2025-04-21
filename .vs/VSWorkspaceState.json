@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\EasterCalculatorSln"
+    "\\NDVX_OnTimeSln"
   ],
+<<<<<<< Updated upstream
   "SelectedNode": "\\EasterCalculatorSln",
+=======
+  "SelectedNode": "\\NDVX_OnTimeSln",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

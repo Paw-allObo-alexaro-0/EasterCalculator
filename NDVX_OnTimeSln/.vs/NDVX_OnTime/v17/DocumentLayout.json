@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\David online\\Documents\\GitHub\\NDVX_OnTime\\NDVX_OnTimeSln\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88187C33-91A6-49F6-94B4-E9799511DFAA}|NDVX_OnTimeConsole\\NDVX_OnTimeConsole.vcxproj|C:\\Users\\David online\\Documents\\GitHub\\NDVX_OnTime\\NDVX_OnTimeSln\\NDVX_OnTimeConsole\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{88187C33-91A6-49F6-94B4-E9799511DFAA}|NDVX_OnTimeConsole\\NDVX_OnTimeConsole.vcxproj|solutionrelative:NDVX_OnTimeConsole\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{88187C33-91A6-49F6-94B4-E9799511DFAA}|EasterCalculatorConsole\\NDVX_EasterCalculatorConsole.vcxproj|C:\\Users\\David online\\Documents\\GitHub\\NDVX_OnTime\\NDVX_OnTimeSln\\EasterCalculatorConsole\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88187C33-91A6-49F6-94B4-E9799511DFAA}|EasterCalculatorConsole\\NDVX_EasterCalculatorConsole.vcxproj|solutionrelative:EasterCalculatorConsole\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,13 +20,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\David online\\Documents\\GitHub\\NDVX_OnTime\\NDVX_OnTimeSln\\NDVX_OnTimeConsole\\main.cpp",
-              "RelativeDocumentMoniker": "NDVX_OnTimeConsole\\main.cpp",
-              "ToolTip": "C:\\Users\\David online\\Documents\\GitHub\\NDVX_OnTime\\NDVX_OnTimeSln\\NDVX_OnTimeConsole\\main.cpp",
-              "RelativeToolTip": "NDVX_OnTimeConsole\\main.cpp",
-              "ViewState": "AQIAADUAAACAIzMzMzMbwEMAAAAMAAAA",
+              "DocumentMoniker": "C:\\Users\\David online\\Documents\\GitHub\\NDVX_OnTime\\NDVX_OnTimeSln\\EasterCalculatorConsole\\main.cpp",
+              "RelativeDocumentMoniker": "EasterCalculatorConsole\\main.cpp",
+              "ToolTip": "C:\\Users\\David online\\Documents\\GitHub\\NDVX_OnTime\\NDVX_OnTimeSln\\EasterCalculatorConsole\\main.cpp",
+              "RelativeToolTip": "EasterCalculatorConsole\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-21T10:42:28.41Z",
+              "WhenOpened": "2025-04-21T13:54:25.135Z",
               "EditorCaption": ""
             }
           ]

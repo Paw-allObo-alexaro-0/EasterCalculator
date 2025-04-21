@@ -17,8 +17,8 @@ int main(void)
 	char menu_in_c;
 	while(true)
 	{
-		cout << "(1) Single Year" << endl;
-		cout << "(2) Range of Years" << endl;
+		cout << "(1) Single year" << endl;
+		cout << "(2) Range of years" << endl;
 		cout << "(3) Exit" << endl;
 
 		menu_in_c = _getch();
@@ -27,8 +27,20 @@ int main(void)
 			case '1':
 			{
 				signed short year;
-				cout << "Enter Year: ";
-				cin >> year;
+				while(true)
+				{
+					cout << "Enter year: ";
+					cin >> year;
+
+					if (cin.fail())
+					{
+						cout << "Invalid input! Please enter a valid number." << endl;
+						cin.clear();
+						cin.ignore();
+						continue;
+					}
+					break;
+				}
 				ntime::time_private t = time_calculator::calc_single_easter(year);
 				cout << "Easter Sunday: " << (int)t.get_day() << "/" << (int)t.get_month() << "/" << (int)t.get_year() << endl;
 			}
@@ -39,10 +51,34 @@ int main(void)
 				cout << "File Name: ";
 				string file_name;
 				cin >> file_name;
-				cout << "Enter Start Year: ";
-				cin >> start_year;
-				cout << "Enter End Year: ";
-				cin >> end_year;
+				while (true)
+				{
+					cout << "Enter start year: ";
+					cin >> start_year;
+
+					if (cin.fail())
+					{
+						cout << "Invalid input! Please enter a valid number." << endl;
+						cin.clear();
+						cin.ignore();
+						continue;
+					}
+					break;
+				}
+				while (true)
+				{
+					cout << "Enter end year: ";
+					cin >> end_year;
+
+					if (cin.fail())
+					{
+						cout << "Invalid input! Please enter a valid number." << endl;
+						cin.clear();
+						cin.ignore();
+						continue;
+					}
+					break;
+				}
 				ntime::time_private* ts = new ntime::time_private[end_year - start_year + 1];
 				ts = time_calculator::calc_range_of_easters(start_year, end_year);
 				{
@@ -63,6 +99,7 @@ int main(void)
 					fprintf(file, "+--------+-----+\n");
 					fclose(file);
 				}
+				delete[] ts;
 			}
 			break;
 			case '3':
